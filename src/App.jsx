@@ -7,6 +7,7 @@ import SumOfNaturalNumbers from "./Apps/SumOfNaturalNumbers/SumOfNaturalNumber";
 import Armstrong from "./Apps/ArmstrongNumber/ArmstrongNumber";
 import Factorial from "./Apps/Factorial/Factorial";
 import GreatestOfThreeNumbers from "./Apps/GreatestOfThreeNumbers/GreatestOfThreeNumbers";
+import BoxBallGame from "./Apps/BoxBallGame/BoxBallGame";
 
 function App() {
   const [activeApp, setActiveApp] = useState(null);
@@ -18,6 +19,7 @@ function App() {
     { name: "Factorial Number", component: <Factorial /> },
     { name: "Greatest Of Three Numbers", component: <GreatestOfThreeNumbers /> },
     { name: "Fee Tracker", component: <FeeTracker /> },
+    { name: "Box Ball Game", component: <BoxBallGame /> },  // ✅ Added here
   ];
 
   const cardStyle = {
@@ -37,12 +39,26 @@ function App() {
   };
 
   return (
-    <div style={{ padding: "20px", fontFamily: "Arial", backgroundColor: "#1e1e2f", minHeight: "100vh" }}>
+    <div
+      style={{
+        padding: "20px",
+        fontFamily: "Arial",
+        backgroundColor: "#1e1e2f",
+        minHeight: "100vh",
+      }}
+    >
       <h1 style={{ color: "#f0f0f0" }}>React Programs Dashboard</h1>
 
-      <div style={{ display: "flex", gap: "20px", flexWrap: "wrap", marginBottom: "30px" }}>
+      <div
+        style={{
+          display: "flex",
+          gap: "20px",
+          flexWrap: "wrap",
+          marginBottom: "30px",
+        }}
+      >
         {programs.map((program, index) => (
-          <div 
+          <div
             key={index}
             style={cardStyle}
             onClick={() => setActiveApp(program.component)}
@@ -54,7 +70,16 @@ function App() {
         ))}
       </div>
 
-      <div style={{ border: "2px solid #555", borderRadius: "10px", padding: "20px", minHeight: "200px", backgroundColor: "#2e2e3e", color: "#f5f5f5" }}>
+      <div
+        style={{
+          border: "2px solid #555",
+          borderRadius: "10px",
+          padding: "20px",
+          minHeight: "200px",
+          backgroundColor: "#2e2e3e",
+          color: "#f5f5f5",
+        }}
+      >
         {activeApp ? activeApp : <p>Please select a program to run.</p>}
       </div>
     </div>
